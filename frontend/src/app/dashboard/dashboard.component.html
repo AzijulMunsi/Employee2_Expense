@@ -1,0 +1,41 @@
+
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">ExpenseManager</div>
+  <ul class="nav-links">
+    <li><a routerLink="/employee/dashboard">Home</a></li>
+    <li><a routerLink="/employee/expense-form">Add Expense</a></li>
+    <li><a routerLink="/employee/expense-list">View Expenses</a></li>
+    <li><a (click)="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Welcome, {{ username }}!</h1>
+  <p class="quote">"The best way to predict the future is to manage your expenses today."</p>
+  <p class="about">
+    Our Expense Management System helps you track, add, and view your expenses efficiently. Keep your finances organized and transparent.
+  </p>
+</section>
+
+<!-- Cards Section -->
+<section class="cards">
+  <div class="card">
+    <h2>Add Expense</h2>
+    <p>Quickly add your new expenses.</p>
+    <button routerLink="/employee/expense-form">Add</button>
+  </div>
+
+  <div class="card">
+    <h2>View Expenses</h2>
+    <p>Check all your submitted expenses.</p>
+    <button routerLink="/employee/expense-list">View</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 ExpenseManager. All rights reserved.</p>
+</footer>

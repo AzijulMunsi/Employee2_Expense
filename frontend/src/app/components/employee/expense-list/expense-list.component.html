@@ -1,0 +1,33 @@
+<table *ngIf="!loading && expenses.length > 0">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Delete</th>
+      <!-- <th>Action</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let expense of expenses">
+      <td>{{ expense.title }}</td>
+      <td>{{ expense.description }}</td>
+      <td>{{ expense.amount | currency:'USD' }}</td>
+      <td>{{ expense.date }}</td>
+      <td>{{ expense.status }}</td>
+      <!-- <td>
+        <button *ngIf="expense.status==='pending'" (click)="updateStatus(expense.id,'approved')">Approve</button>
+        <button *ngIf="expense.status==='pending'" (click)="updateStatus(expense.id,'rejected')">Reject</button>
+      </td> -->
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="deleteExpense(expense.id)">
+          Delete
+        </button>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
+

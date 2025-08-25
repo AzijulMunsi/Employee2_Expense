@@ -1,0 +1,26 @@
+<form class="registration-form" (ngSubmit)="signup()">
+  <div class="registration-container">
+    <div class="registration-header">
+      <h2>Employee Sign Up</h2>
+      <p>Create your ExpenseManager account</p>
+    </div>
+    
+    <div class="form-group">
+      <input type="text" placeholder="Username" [(ngModel)]="username" name="username" required>
+      <i class="fas fa-user"></i>
+    </div>
+    
+    <div class="form-group">
+      <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+      <i class="fas fa-lock"></i>
+    </div>
+    
+    <button type="submit" class="registration-button">
+      <i class="fas fa-user-plus"></i> Sign Up
+    </button>
+    
+    <div class="registration-footer">
+      <p>Already have an account? <a routerLink="/login">Login</a></p>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,40 @@
+<div class="manager-dashboard">
+  <nav>
+    <h2>Welcome, {{ username }}</h2>
+    <button (click)="logout()">Logout</button>
+  </nav>
+
+  <div class="container">
+    <h3>Pending Expense Requests</h3>
+
+    <div *ngIf="loading">Loading pending expenses...</div>
+
+    <table *ngIf="!loading && expenses.length > 0">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of expenses">
+          <td>{{ expense.title }}</td>
+          <td>{{ expense.description }}</td>
+          <td>{{ expense.amount | currency:'USD' }}</td>
+          <td>{{ expense.date }}</td>
+          <td>
+            <button (click)="updateStatus(expense.id,'approved')">Approve</button>
+            <button (click)="updateStatus(expense.id,'rejected')">Reject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!loading && expenses.length === 0">
+      No pending expenses.
+    </div>
+  </div>
+</div>

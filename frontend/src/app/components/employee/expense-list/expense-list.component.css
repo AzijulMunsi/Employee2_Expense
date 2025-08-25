@@ -1,0 +1,157 @@
+/* Expense List Component Styles */
+:host {
+  display: block;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+}
+
+thead {
+  background: linear-gradient(135deg, #4361ee 0%, #3a56d4 100%);
+  color: white;
+}
+
+th {
+  padding: 1.2rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: none;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+td {
+  padding: 1.2rem 1rem;
+  color: #2b2d42;
+  border-bottom: 1px solid #e9ecef;
+}
+
+td:first-child {
+  font-weight: 600;
+  color: #2b2d42;
+}
+
+td:nth-child(3) {
+  font-weight: 600;
+  color: #2b2d42;
+}
+
+td:nth-child(5) {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  color: #ff9f1c;
+}
+
+.status-approved {
+  color: #2ec4b6;
+}
+
+.status-rejected {
+  color: #e71d36;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-danger {
+  background: #e71d36;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c81d37;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(231, 29, 54, 0.3);
+}
+
+.btn-danger:active {
+  transform: translateY(0);
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  th, td {
+    padding: 0.9rem 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Animation for table rows */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+tbody tr {
+  animation: fadeIn 0.3s ease-out;
+}
+
+tbody tr:nth-child(1) { animation-delay: 0.05s; }
+tbody tr:nth-child(2) { animation-delay: 0.1s; }
+tbody tr:nth-child(3) { animation-delay: 0.15s; }
+tbody tr:nth-child(4) { animation-delay: 0.2s; }
+tbody tr:nth-child(5) { animation-delay: 0.25s; }
+
+/* Style for when there are no expenses or loading */
+table + * {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  font-style: italic;
+}
