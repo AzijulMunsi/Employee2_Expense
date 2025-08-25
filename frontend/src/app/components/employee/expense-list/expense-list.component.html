@@ -5,7 +5,10 @@
       <th>Description</th>
       <th>Amount</th>
       <th>Date</th>
+      <th>Bill/Invoice No</th>
+      <th>Bill/Invoice date</th>
       <th>Status</th>
+      
       <th>Delete</th>
       <!-- <th>Action</th> -->
     </tr>
@@ -16,6 +19,8 @@
       <td>{{ expense.description }}</td>
       <td>{{ expense.amount | currency:'USD' }}</td>
       <td>{{ expense.date }}</td>
+      <td>{{expense.bill_no}}</td>
+      <td>{{expense.bill_date}}</td>
       <td>{{ expense.status }}</td>
       <!-- <td>
         <button *ngIf="expense.status==='pending'" (click)="updateStatus(expense.id,'approved')">Approve</button>
@@ -30,4 +35,9 @@
     </tr>
   </tbody>
 </table>
+
+<div style="margin-top: 20px; text-align: center;">
+  <button class="btn btn-secondary" (click)="goBack()">⬅ Back to Dashboard</button>
+</div>
+
 

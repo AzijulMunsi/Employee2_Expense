@@ -12,12 +12,14 @@ export class ExpenseFormComponent {
   description = '';
   amount: number | null = null;
   date = '';
+  bill_no = '';       // <-- new
+  bill_date = '';     // <-- new
 
   constructor(private http: HttpClient, private router: Router) {}
 
   addExpense() {
-    if (!this.title || !this.amount || !this.date) {
-      alert('Title, Amount, and Date are required');
+    if (!this.title || !this.amount || !this.date || !this.bill_no || !this.bill_date) {
+      alert('Title, Amount, Date, Bill No, and Bill Date are required');
       return;
     }
 
@@ -25,7 +27,9 @@ export class ExpenseFormComponent {
       title: this.title,
       description: this.description,
       amount: this.amount,
-      date: this.date
+      date: this.date,
+      bill_no: this.bill_no,       // <-- send
+      bill_date: this.bill_date
     };
 
     this.http.post('http://127.0.0.1:5002/expenses', expense)
@@ -37,8 +41,10 @@ export class ExpenseFormComponent {
           this.description = '';
           this.amount = null;
           this.date = '';
+          this.bill_no = '';
+          this.bill_date = '';
           // optionally redirect to expense list
-          // this.router.navigate(['/employee/expense-list']);
+          this.router.navigate(['/employee/expense-list']);
         },
         error: (err) => {
           alert(err.error.msg || 'Something went wrong');

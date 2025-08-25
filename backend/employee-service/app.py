@@ -24,15 +24,19 @@ def add_expense():
     description = data.get('description')
     amount = data.get('amount')
     date = data.get('date')
+    bill_no = data.get('bill_no')
+    bill_date = data.get('bill_date')
 
     if not title or not amount or not date:
-        return jsonify({"msg": "Title, amount, and date are required"}), 400
+        return jsonify({"msg": "Title, amount, date, bill no, and bill date are required"}), 400
 
     expense = Expense(
         title=title,
         description=description,
         amount=amount,
         date=date,
+        bill_no=bill_no,
+        bill_date=bill_date,
         status="pending"  # default status
     )
     db.session.add(expense)

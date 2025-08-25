@@ -45,6 +45,14 @@ export class ExpenseListComponent implements OnInit {
       });
   }
 
+
+goBack() {
+  window.history.back();  // or this.router.navigate(['/employee/dashboard']);
+}
+
+
+
+
   // ✅ Delete expense (Employee use-case)
   deleteExpense(expenseId: number) {
     if (confirm('Are you sure you want to delete this expense?')) {

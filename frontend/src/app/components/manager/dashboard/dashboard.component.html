@@ -16,6 +16,8 @@
           <th>Description</th>
           <th>Amount</th>
           <th>Date</th>
+          <th>Bill No</th>       <!-- ✅ new -->
+          <th>Bill Date</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -25,6 +27,8 @@
           <td>{{ expense.description }}</td>
           <td>{{ expense.amount | currency:'USD' }}</td>
           <td>{{ expense.date }}</td>
+          <td>{{ expense.bill_no }}</td>   <!-- ✅ new -->
+          <td>{{ expense.bill_date }}</td> <!-- ✅ new -->
           <td>
             <button (click)="updateStatus(expense.id,'approved')">Approve</button>
             <button (click)="updateStatus(expense.id,'rejected')">Reject</button>

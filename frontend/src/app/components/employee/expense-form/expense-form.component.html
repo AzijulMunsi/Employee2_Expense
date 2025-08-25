@@ -13,6 +13,14 @@
     <label>Date*</label>
     <input type="date" [(ngModel)]="date" name="date" required>
 
+    <!-- ✅ New fields -->
+    <label>Bill/Invoice No*</label>
+    <input type="text" [(ngModel)]="bill_no" name="bill_no" required>
+
+    <label>Bill/Invoice Date*</label>
+    <input type="date" [(ngModel)]="bill_date" name="bill_date" required>
+
+
     <button type="submit">Add Expense</button>
   </form>
 </div>
