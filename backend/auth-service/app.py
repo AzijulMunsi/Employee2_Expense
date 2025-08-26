@@ -20,13 +20,16 @@ with app.app_context():
         db.session.add(manager)
         db.session.commit()
 
-# Signup endpoint (only for employees)
+# Signup endpoint (allowing employee or manager from client)
 @app.route('/signup', methods=['POST'])
 def signup():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-    role = 'employee'  # Only employee can sign up
+    role = data.get('role', 'employee')  # allow client to set role; default to employee
+
+    if role not in ['employee', 'manager']:
+        return jsonify({'msg': 'Invalid role'}), 400
 
     if User.query.filter_by(username=username).first():
         return jsonify({'msg': 'Username already exists'}), 400
@@ -36,7 +39,7 @@ def signup():
     db.session.add(user)
     db.session.commit()
 
-    return jsonify({'msg': 'Employee account created successfully'}), 201
+    return jsonify({'msg': f'{role.capitalize()} account created successfully'}), 201
 
 # Login endpoint (for both employee and manager)
 @app.route('/login', methods=['POST'])

@@ -1,13 +1,41 @@
 /* Expense Form Component Styles - Modern Design */
+/* Add a modern gradient background with subtle shapes */
 :host {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 2rem 1rem;
-  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #f0f9ff 100%);
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Decorative gradient circles */
+:host::before, 
+:host::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+:host::before {
+  width: 400px;
+  height: 400px;
+  background: #2786f3;
+  top: -100px;
+  left: -100px;
+}
+
+:host::after {
+  width: 500px;
+  height: 500px;
+  background: #a5b4fc;
+  bottom: -150px;
+  right: -150px;
+}
+
+
+
 
 .form-container {
   background: #ffffff;
@@ -16,7 +44,9 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 500px;
+  margin-left: 300px;
   border: 1px solid #e9ecef;
+  
 }
 
 h2 {

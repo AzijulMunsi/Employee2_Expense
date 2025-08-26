@@ -10,8 +10,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  signup(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/signup`, { username, password });
+  // Allow sending role (employee/manager) from signup page
+  signup(username: string, password: string, role: string = 'employee'): Observable<any> {
+    return this.http.post(`${this.apiUrl}/signup`, { username, password, role });
   }
 
   login(username: string, password: string): Observable<any> {

@@ -1,7 +1,7 @@
 <form class="registration-form" (ngSubmit)="signup()">
   <div class="registration-container">
     <div class="registration-header">
-      <h2>Employee Sign Up</h2>
+      <h2> {{ role === 'employee' ? 'Employee Sign Up' : 'Manager Sign Up' }}</h2>
       <p>Create your ExpenseManager account</p>
     </div>
     
@@ -14,9 +14,19 @@
       <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
       <i class="fas fa-lock"></i>
     </div>
+
+    <!-- Role selection (employee / manager) on the same signup page -->
+    <div class="form-group role-selection">
+      <label>
+        <input type="radio" name="role" [(ngModel)]="role" value="employee"> Sign up as Employee
+      </label>
+      <label>
+        <input type="radio" name="role" [(ngModel)]="role" value="manager"> Sign up as Manager
+      </label>
+    </div>
     
     <button type="submit" class="registration-button">
-      <i class="fas fa-user-plus"></i> Sign Up
+      <i class="fas fa-user-plus"></i> Sign Up as {{ role }}
     </button>
     
     <div class="registration-footer">

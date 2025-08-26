@@ -1,4 +1,7 @@
-/* Registration Component Styles */
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Registration Component Styles - Enhanced Professional Version */
 :host {
   display: flex;
   justify-content: center;
@@ -7,115 +10,227 @@
   background: linear-gradient(135deg, #f0f4ff 0%, #e6e6ff 100%);
   padding: 20px;
   font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background pattern */
+:host::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234f46e5' fill-opacity='0.03'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
 }
 
 .registration-form {
   width: 100%;
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
 
 .registration-container {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 2.5rem;
+  backdrop-filter: blur(12px);
+  padding: 2.8rem;
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
   width: 100%;
-  max-width: 400px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 450px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #4f46e5);
+  background-size: 200% 100%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .registration-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
 }
 
 .registration-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .registration-header h2 {
   font-family: 'Poppins', sans-serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
 }
 
 .registration-header p {
   color: #64748b;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   position: relative;
 }
 
 .form-group input {
   width: 90%;
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.4rem;
   border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 1rem;
   transition: all 0.3s ease;
   background-color: #f8fafc;
   color: #334155;
   outline: none;
-  padding-left: 3rem;
+  padding-left: 3.2rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 .form-group input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
   background-color: #fff;
+  transform: translateY(-2px);
 }
 
 .form-group input::placeholder {
   color: #94a3b8;
+  font-weight: 400;
 }
 
 .form-group i {
   position: absolute;
-  left: 1.2rem;
+  left: 1.4rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #64748b;
-  font-size: 1.1rem;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .form-group input:focus + i {
-  color: #667eea;
+  color: #4f46e5;
+}
+
+/* Role Selection Styling */
+.role-selection {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 14px;
+  margin-top: 1.5rem;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.role-selection:hover {
+  border-color: #4f46e5;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+}
+
+.role-selection label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  border: 2px solid transparent;
+}
+
+.role-selection label:last-child {
+  margin-bottom: 0;
+}
+
+.role-selection label:hover {
+  background: #f1f5f9;
+  transform: translateX(5px);
+}
+
+.role-selection input[type="radio"] {
+  margin-right: 0.8rem;
+  accent-color: #4f46e5;
+  transform: scale(1.2);
+}
+
+.role-selection span {
+  font-weight: 500;
+  color: #334155;
+}
+
+.role-selection label:has(input:checked) {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: #4f46e5;
 }
 
 .registration-button {
   width: 100%;
-  padding: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.2rem;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-top: 1rem;
+  gap: 12px;
+  margin-top: 1.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.registration-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.registration-button:hover::before {
+  left: 100%;
 }
 
 .registration-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.4);
 }
 
 .registration-button:active {
@@ -124,17 +239,30 @@
 
 .registration-footer {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 2.2rem;
   color: #64748b;
   font-size: 0.95rem;
+  position: relative;
+}
+
+.registration-footer::before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
 }
 
 .registration-footer a {
-  color: #667eea;
+  color: #4f46e5;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
   position: relative;
+  display: inline-block;
 }
 
 .registration-footer a::after {
@@ -144,7 +272,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   transition: width 0.3s ease;
 }
 
@@ -153,33 +281,56 @@
 }
 
 .registration-footer a:hover {
-  color: #764ba2;
+  color: #7c3aed;
+}
+
+/* Form validation styles */
+.form-group input.ng-invalid.ng-touched {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15);
+}
+
+.form-group input.ng-invalid.ng-touched + i {
+  color: #ef4444;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* Responsive design */
 @media (max-width: 576px) {
   .registration-container {
-    padding: 2rem 1.5rem;
+    padding: 2.2rem 1.8rem;
   }
   
   .registration-header h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   
   .form-group input {
-    padding: 0.9rem 1rem 0.9rem 2.8rem;
+    padding: 1rem 1.2rem 1rem 2.8rem;
   }
   
   .form-group i {
-    left: 1rem;
+    left: 1.2rem;
+  }
+  
+  .role-selection {
+    padding: 1.2rem;
   }
 }
 
 /* Animation for the form */
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -188,24 +339,43 @@
 }
 
 .registration-container {
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeInUp 0.6s ease-out;
 }
 
-/* Additional fields styling for future expansion */
-.password-strength {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: #64748b;
+/* Password visibility toggle */
+.password-toggle {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
-.terms {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: #64748b;
+.password-toggle:hover {
+  color: #4f46e5;
+}
+
+/* Success message animation */
+.success-message {
+  background: #10b981;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
   text-align: center;
+  margin-bottom: 1.5rem;
+  animation: slideIn 0.5s ease;
 }
 
-.terms a {
-  color: #667eea;
-  text-decoration: none;
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

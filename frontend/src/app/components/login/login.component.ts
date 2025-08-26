@@ -10,11 +10,21 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username = '';
   password = '';
+  // purely for UI (which "Login as" button the user clicked)
+  selectedLoginRole: 'employee' | 'manager' = 'employee';
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  // keep original login logic (server decides the role)
   login() {
-    this.authService.login(this.username, this.password).subscribe({
+    // client-side guard: require non-empty username & password
+    if (!this.username || !this.username.trim() || !this.password) {
+      alert('Please enter both username and password');
+      return;
+    }
+
+    // call login with trimmed username
+    this.authService.login(this.username.trim(), this.password).subscribe({
       next: (res) => {
         alert(res.msg);
 
@@ -29,7 +39,14 @@ export class LoginComponent {
           this.router.navigate(['/dashboard']);
         }
       },
-      error: (err) => alert(err.error.msg)
+      error: (err) => alert(err.error?.msg || 'Login failed')
     });
+  }
+
+  // called by the two "Login as ..." buttons. keeps UX but doesn't override server-side role check.
+  loginAs(role: 'employee' | 'manager') {
+    this.selectedLoginRole = role;
+    // simply call the same login method (server returns actual role)
+    this.login();
   }
 }

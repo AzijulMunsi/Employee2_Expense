@@ -6,22 +6,21 @@ import { Router } from '@angular/router';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls:['./signup.component.css']
-  
 })
 export class SignupComponent {
   username = '';
   password = '';
+  role: 'employee' | 'manager' = 'employee'; // allow selecting manager or employee
 
   constructor(private authService: AuthService, private router: Router) {}
 
   signup() {
-    this.authService.signup(this.username, this.password).subscribe({
+    this.authService.signup(this.username, this.password, this.role).subscribe({
       next: () => {
-        alert('Employee account created successfully');
+        alert(`${this.role.charAt(0).toUpperCase() + this.role.slice(1)} account created successfully`);
         this.router.navigate(['/login']);
       },
       error: (err) => alert(err.error.msg)
     });
   }
 }
-
